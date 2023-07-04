@@ -1,0 +1,19 @@
+<ngx-loading-bar [color]="'#8A6CC8'" [height]="'5px'"></ngx-loading-bar>
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #publicsidenav hasBackdrop="false" class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+        <app-app-public-sidenav-list (publicsidenavClose)="publicsidenav.close()"></app-app-public-sidenav-list>
+        <div class="logout-user">
+            <button mat-button (click)="logout()">
+                <img src="assets/icons/logout.svg" alt=""/>
+                <span>logout</span>    
+            </button>
+        </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="mat-sidenav-content">
+        <header (publicsidenavToggle)="publicsidenav.toggle()"></header>
+        <div class="main">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

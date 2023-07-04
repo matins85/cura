@@ -1,0 +1,48 @@
+mat-sidenav-container {
+  min-height: 100vh;
+  background: var(--bg);
+  position: relative;
+
+  .logout-user {
+    position: absolute;
+    bottom: 30px;
+    left: 25%;
+
+    button {
+      width: 140px;
+      height: 35px;
+      background: #f0f3ff;
+      color: #d86666;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 130%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      text-transform: capitalize;
+      vertical-align: middle;
+
+      img {
+        margin-right: 9px;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+::ng-deep .mat-drawer-backdrop.mat-drawer-shown {
+  background: rgba(79, 86, 101, 0.2);
+}
+
+.sidenav {
+  width: 312px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: var(--white);
+  border: unset;
+}
+
+.mat-sidenav-content {
+  padding: 20px;
+}

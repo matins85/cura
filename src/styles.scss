@@ -1,1 +1,76 @@
 /* You can add global styles to this file, and also import other style files */
+@import "@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "material-icons/iconfont/material-icons.css";
+@import "./assets/css/poppins.css";
+
+:root {
+  --white: #ffffff;
+  --poppins: "Poppins";
+  --black: #3c3c3c;
+  --primary-color: #8a6cc8;
+  --bg: #f8f8f8;
+}
+
+html,
+body {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: var(--poppins);
+}
+
+.success {
+  color: var(--white);
+  background: var(--black);
+}
+
+.error {
+  color: var(--white);
+  background: var(--black);
+}
+
+.warning {
+  color: var(--white);
+}
+
+.cdk-overlay-container
+  .cdk-overlay-backdrop.cdk-overlay-dark-backdrop.cdk-overlay-backdrop-showing {
+  background: rgba(17, 19, 18, 0.5);
+}
+
+.mat-dialog-container {
+  border-radius: 0px !important;
+}
+
+.cdk-global-overlay-wrapper {
+  overflow-y: auto;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.mat-snack-bar-container .mat-focus-indicator.mat-button.mat-button-base {
+  color: var(--white);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgb(193, 193, 193);
+  transition: all 0.5s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9f9e9e;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(241, 241, 241);
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
