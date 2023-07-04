@@ -1,12 +1,11 @@
 import { DatePipe } from '@angular/common';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import {
   ModuleWithProviders,
   NgModule,
   Optional,
   SkipSelf,
 } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -19,12 +18,12 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 import 'hammerjs';
 import { AuthService } from 'src/app/services/auth.service';
+import { AuthInterceptor } from './_helpers/auth.interceptor';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { reducers } from './reducers/index';
 import { HttpService } from './services/http.service';
 import { NetworkAwarePreloadingStrategyService2Service } from './services/network-aware-preloading-strategy.service';
-import { AuthInterceptor } from './_helpers/auth.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,7 +31,6 @@ import { AuthInterceptor } from './_helpers/auth.interceptor';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FlexLayoutModule,
     MatBottomSheetModule,
     MatDatepickerModule,
     MatNativeDateModule,
