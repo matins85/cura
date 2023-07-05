@@ -1,38 +1,23 @@
 .logo-p {
-  height: 76px;
-  border-bottom: 1.5px solid #e9ecef;
+  height: 100px;
+  border-bottom: 7px solid var(--bg);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 20px;
-  padding-right: 20px;
 
   .logo {
     display: flex;
     justify-content: left;
     align-items: center;
-
-    img {
-      width: 47.72px;
-      height: 48px;
-      cursor: pointer;
-      -webkit-tap-highlight-color: transparent;
-      -webkit-touch-callout: none;
-      -webkit-user-select: none;
-      -khtml-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
+    margin-left: 2.56rem;
 
     div {
-      margin-left: 7px;
+      color: var(--primary-color);
+      font-size: 30px;
+      font-family: var(--poppins);
       font-style: normal;
-      font-weight: 500;
-      font-size: 19px;
-      line-height: 28px;
-      color: #232d42;
-      text-transform: uppercase;
+      font-weight: 400;
+      line-height: normal;
     }
   }
 
@@ -41,8 +26,10 @@
     justify-content: center;
     align-items: center;
 
+    margin-right: 2.56rem;
+
     .hide {
-      background: var(--blue);
+      background: var(--primary-color);
       width: 24px;
       height: 24px;
     }
@@ -57,12 +44,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-
-      img {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
 
       svg {
         display: flex;
@@ -91,8 +72,8 @@
     display: flex;
     justify-content: left;
     align-items: center;
-    height: 44px;
-    margin-bottom: 30px;
+    height: 58px;
+    margin-bottom: 20px;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
@@ -101,31 +82,33 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    transition: all 0.2s;
 
-    .img {
+    svg {
       margin-left: 25px;
-      margin-right: 15px;
+      margin-right: 13px;
     }
 
-    .img path {
-      fill: #8a92a6;
+    svg path {
+      fill: var(--black);
     }
 
     div {
+      color: var(--black);
+      font-size: 20px;
+      font-family: var(--poppins);
       font-style: normal;
       font-weight: 400;
-      font-size: 15px;
-      line-height: 26px;
+      line-height: normal;
       text-transform: capitalize;
-      color: #8a92a6;
     }
   }
 
   .dashboard:hover {
-    background: var(--blue);
-    border-radius: 4px;
+    background: var(--primary-color);
+    border-radius: 72px;
 
-    .img path {
+    svg path {
       fill: var(--white);
     }
 
@@ -135,13 +118,9 @@
   }
 
   .active {
-    background: var(--blue);
-    box-shadow: 0px 2px 4px rgba(138, 146, 166, 0.3);
-    border-radius: 4px;
+    background: var(--primary-color);
+    border-radius: 72px;
     color: var(--white);
-    font-size: 17px;
-    line-height: 175%;
-    height: 45px;
 
     ::ng-deep .mat-expansion-panel-header-title {
       color: var(--white);
@@ -151,7 +130,7 @@
       color: var(--white);
     }
 
-    .img path,
+    svg path,
     i {
       fill: var(--white);
       color: var(--white);
@@ -159,16 +138,12 @@
 
     .div-text {
       color: var(--white);
-      font-size: 16px;
-      line-height: 175%;
     }
   }
 
   ::ng-deep .mat-expansion-panel-header {
-    background: var(--white);
     box-shadow: unset;
-    border-radius: 4px;
-    // transition: all 0.2s;
+    border-radius: 72px;
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -176,10 +151,20 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+
+    svg {
+      margin-right: 13px;
+    }
+
+    svg path,
+    i {
+      fill: var(--black);
+      color: var(--black);
+    }
   }
 
   ::ng-deep .mat-expansion-panel-header:hover {
-    background: var(--blue) !important;
+    background: var(--primary-color) !important;
 
     .mat-expansion-panel-header-title {
       color: var(--white) !important;
@@ -189,7 +174,7 @@
       color: var(--white) !important;
     }
 
-    .img path,
+    svg path,
     i {
       fill: var(--white);
       color: var(--white);
@@ -197,20 +182,21 @@
   }
 
   ::ng-deep .mat-expansion-panel-header-title {
+    color: var(--black);
+    font-size: 20px;
+    font-family: var(--poppins);
     font-style: normal;
     font-weight: 400;
-    font-size: 15px;
-    line-height: 26px;
+    line-height: normal;
     text-transform: capitalize;
-    color: #8a92a6;
     display: flex;
     justify-content: left;
     align-items: center;
 
-    .img,
+    svg path,
     i {
-      margin-right: 15px;
-      color: #8a92a6;
+      margin-right: 13px;
+      color: var(--black);
     }
   }
 
@@ -218,59 +204,56 @@
     background: var(--white);
     box-shadow: unset;
     border-radius: unset;
-    margin-bottom: 1rem;
-  }
+    margin-bottom: 20px;
 
-  ::ng-deep .mat-expansion-panel-header.mat-expanded {
-    color: #8a92a6;
-    height: 44px;
+    .expansion-container {
+      width: 100%;
+
+      .active2 {
+        button {
+          color: var(--primary-color);
+        }
+      }
+
+      div:hover {
+        button {
+          color: var(--primary-color);
+        }
+      }
+
+      .div-text {
+        color: var(--black);
+      }
+
+      svg path {
+        fill: var(--white);
+      }
+
+      div {
+        margin-top: 13px;
+
+        button {
+          margin-left: 20px;
+          width: 100%;
+          display: flex;
+          justify-content: left;
+          align-items: center;
+          color: var(--black);
+          font-size: 15px;
+          font-family: var(--poppins);
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+        }
+      }
+    }
   }
 
   ::ng-deep .mat-expansion-indicator::after {
-    color: #8a92a6;
+    color: var(--black);
     display: flex;
     justify-content: right;
     align-items: center;
-  }
-
-  .expansion_container {
-    width: 100%;
-
-    .active2 {
-      background: #f0f3ff;
-      color: var(--blue);
-    }
-
-    div:hover {
-      background: #f0f3ff;
-      color: var(--blue);
-    }
-
-    .div-text {
-      color: var(--white);
-      font-size: 16px;
-      line-height: 175%;
-    }
-
-    .img path {
-      fill: var(--white);
-    }
-
-    div {
-      border-radius: 4px;
-      font-family: "Inter";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 13px;
-      line-height: 130%;
-      color: #8a92a6;
-      margin-top: 10px;
-
-      button {
-        width: 100%;
-        text-align: left;
-      }
-    }
   }
 }
 

@@ -5,26 +5,20 @@ mat-sidenav-container {
 
   .logout-user {
     position: absolute;
-    bottom: 30px;
+    bottom: 70px;
     left: 25%;
 
     button {
-      width: 140px;
-      height: 35px;
-      background: #f0f3ff;
-      color: #d86666;
+      color: var(--black);
+      font-size: 20px;
+      font-family: var(--alata);
       font-style: normal;
       font-weight: 400;
-      font-size: 16px;
-      line-height: 130%;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      text-transform: capitalize;
+      line-height: normal;
       vertical-align: middle;
 
       img {
-        margin-right: 9px;
+        margin-right: 18px;
         vertical-align: middle;
       }
     }
@@ -36,7 +30,7 @@ mat-sidenav-container {
 }
 
 .sidenav {
-  width: 312px;
+  width: 335px;
   overflow-x: hidden;
   overflow-y: auto;
   background: var(--white);
@@ -44,5 +38,11 @@ mat-sidenav-container {
 }
 
 .mat-sidenav-content {
-  padding: 20px;
+  padding-left: 23px;
+
+  .main {
+    padding-top: 23px;
+    padding-right: 23px;
+    padding-bottom: 23px;
+  }
 }

@@ -8,7 +8,7 @@ import {
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { Router, RouterModule } from '@angular/router';
+import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ToggleNavService } from 'src/app/dashboard/sharedService/toggle-nav.service';
 import { AuthService } from 'src/app/services/auth.service';
@@ -39,10 +39,23 @@ export class AppPublicSidenavListComponent {
     private router: Router,
     private authService: AuthService,
     public shared: ToggleNavService
-  ) {}
+  ) {
+    this.router.events.subscribe((ev) => {
+      if (ev instanceof NavigationEnd) {
+        this.getRoute();
+      }
+    });
+  }
 
-  routeRedirect() {
-    this.onPublicHeaderToggleSidenav();
+  getRoute() {
+    if (this.router.url == '/') {
+      // feedback
+      let feedback = document.querySelector('.panel-user');
+      feedback?.classList.add('active');
+      let feedback2 = document.querySelector('.panel-user2');
+      feedback2?.classList.add('active');
+      this.step = 1;
+    }
   }
 
   logout() {

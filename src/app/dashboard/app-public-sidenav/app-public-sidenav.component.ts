@@ -49,10 +49,6 @@ export class AppPublicSidenavComponent implements OnInit {
       shareReplay()
     );
 
-  logout(): void {
-    this.authService.logout();
-  }
-
   ngOnInit(): void {
     console.log();
   }

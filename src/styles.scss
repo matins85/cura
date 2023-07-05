@@ -2,10 +2,12 @@
 @import "@angular/material/prebuilt-themes/deeppurple-amber.css";
 @import "material-icons/iconfont/material-icons.css";
 @import "./assets/css/poppins.css";
+@import "./assets/css/alata.css";
 
 :root {
   --white: #ffffff;
   --poppins: "Poppins";
+  --alata: "Alata";
   --black: #3c3c3c;
   --primary-color: #8a6cc8;
   --bg: #f8f8f8;
@@ -72,5 +74,11 @@ body {
   background: rgb(241, 241, 241);
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

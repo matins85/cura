@@ -3,15 +3,15 @@
     <mat-sidenav #publicsidenav hasBackdrop="false" class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
         <app-app-public-sidenav-list (publicsidenavClose)="publicsidenav.close()"></app-app-public-sidenav-list>
         <div class="logout-user">
-            <button mat-button (click)="logout()">
-                <img src="assets/icons/logout.svg" alt=""/>
-                <span>logout</span>    
+            <button mat-button>
+                <img src="assets/icons/arrow-left.svg" alt=""/>
+                <span>Log-Out</span>    
             </button>
         </div>
     </mat-sidenav>
 
     <mat-sidenav-content class="mat-sidenav-content">
-        <header (publicsidenavToggle)="publicsidenav.toggle()"></header>
+        <app-header (publicsidenavToggle)="publicsidenav.toggle()"></app-header>
         <div class="main">
             <router-outlet></router-outlet>
         </div>
