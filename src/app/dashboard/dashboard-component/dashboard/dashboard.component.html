@@ -1,1 +1,80 @@
-<p>dashoard</p>
+<div class="wrapper">
+    <div class="header">Complaints</div>
+
+    <div class="table-container">
+        <p-table #dt1  [value]="complains" selectionMode="single" dataKey="id" [scrollable]="true"
+        [paginator]="false" [rows]="15" [showCurrentPageReport]="false" 
+        [loading]="loading" scrollHeight="1000px" [(selection)]="selectedComplain"
+        >
+
+        <ng-template pTemplate="caption">
+
+            <div class="search_icon_header">
+                <form class="search-form_header">
+                    <input type="text" (input)="dt1.filterGlobal($event.target, 'contains')" name="search" placeholder="Enter phone number">
+                    <button matSuffix mat-icon-button class="form-icon_header">
+                        <img src="assets/icons/search.svg" alt=""/>
+                    </button>
+                </form>
+                <button mat-button class="export-button">
+                    <img src="assets/icons/export.svg" alt=""/>
+                    <span>Export Complaints CSV</span>
+                </button>
+            </div>
+
+            <div class="filter-container">
+                <div class="drop-down">
+                    <p-calendar [(ngModel)]="startDate" [showIcon]="true" placeholder="Start Date:"></p-calendar>
+                    <p-calendar [(ngModel)]="endDate" [showIcon]="true" placeholder="End Date:"></p-calendar>
+                    <p-dropdown [options]="filterStatus" [(ngModel)]="selectedStatus" placeholder="Status:" optionLabel="name"></p-dropdown>
+                    <button mat-button class="filter-button">
+                        <img src="assets/icons/filter.svg" alt=""/>
+                        <span>Filter</span>
+                    </button>
+                    <button mat-button class="clear-filter-button">
+                        <img src="assets/icons/cancel.svg" alt=""/>
+                        <span>Clear Filter</span>
+                    </button>
+                </div>
+                <div class="pagination">
+                    <button mat-icon-button><img src="assets/icons/pagination-left.svg" alt=""/></button>
+                    <div>1 0f 10</div>
+                    <button mat-icon-button><img src="assets/icons/pagination-right.svg" alt=""/></button>
+                </div>
+            </div>
+            
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Time</th>
+                <th>Date</th>
+                <th>Phone Number</th>
+                <th>Complaint Type</th>
+                <th>Rating</th>
+                <th>NPS</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-complain>
+            <p></p>
+            <tr [pSelectableRow]="complain">
+                <td>{{ complain?.time }}</td>
+                <td>{{ complain?.date | date}}</td>
+                <td>{{ complain?.phone }}</td>
+                <td>{{ complain?.complain_type }}</td>
+                <td>{{ complain?.rating }}</td>
+                <td>{{ complain?.nps }}</td>
+                <td>{{ complain?.status }}</td>
+                <td><button mat-button class="view">View</button></td>
+            </tr>
+            <p></p>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="3">No Roles found.</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
