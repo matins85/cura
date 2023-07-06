@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { Component, ViewEncapsulation } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -38,12 +38,7 @@ export class DashboardComponent {
   search: string = '';
   searchData: any[] = [];
 
-  // this.datepipe.transform(
-  //   x?.dateofPresentAppointment || x?.dateOfPresentAppointment,
-  //   'YYYY-MM-dd'
-  // )
-
-  constructor() {
+  constructor(public datepipe: DatePipe) {
     this.complains = [
       {
         time: '12:43:01 pm',
@@ -170,18 +165,6 @@ export class DashboardComponent {
   }
 
   modelChange(search: any) {
-    // const data = this.searchData?.filter((data: any) => {
-    //   return (
-    //     data.time.toLowerCase().includes(search.toLowerCase()) ||
-    //     data.date.toLowerCase().includes(search.toLowerCase()) ||
-    //     data.phone.includes(search) ||
-    //     data.complain_type.toLowerCase().includes(search.toLowerCase()) ||
-    //     data.rating.toLowerCase().includes(search.toLowerCase()) ||
-    //     data.nps.toLowerCase().includes(search.toLowerCase()) ||
-    //     data.status.toLowerCase().includes(search.toLowerCase())
-    //   );
-    // });
-    // this.complains = data;
     this.search = search;
   }
 
@@ -193,7 +176,66 @@ export class DashboardComponent {
     this.search = '';
   }
 
-  filter() {}
+  filter() {
+    let filters: any = [];
+    if (this.search) {
+      // search
+      const data = this.searchData?.filter((data: any) => {
+        return (
+          data.time.toLowerCase().includes(this.search.toLowerCase()) ||
+          data.date.toLowerCase().includes(this.search.toLowerCase()) ||
+          data.phone.includes(this.search) ||
+          data.complain_type
+            .toLowerCase()
+            .includes(this.search.toLowerCase()) ||
+          data.rating.toLowerCase().includes(this.search.toLowerCase()) ||
+          data.nps.toLowerCase().includes(this.search.toLowerCase()) ||
+          data.status.toLowerCase().includes(this.search.toLowerCase())
+        );
+      });
+    }
+    // filter status
+    if (this.selectedStatus) {
+      filters.push(
+        this.searchData?.filter((data: any) => {
+          return data?.status === this.selectedStatus?.name;
+        })
+      );
+    }
+
+    // filter start date
+    if (this.startDate) {
+      filters.push(
+        this.searchData?.filter((data: any) => {
+          return (
+            this.datepipe.transform(data.date, 'YYYY-MM-dd') ===
+            this.datepipe.transform(this.startDate, 'YYYY-MM-dd')
+          );
+        })
+      );
+    }
+
+    // filter end date
+    if (this.endDate) {
+      filters.push(
+        this.searchData?.filter((data: any) => {
+          return (
+            this.datepipe.transform(data.date, 'YYYY-MM-dd') ===
+            this.datepipe.transform(this.endDate, 'YYYY-MM-dd')
+          );
+        })
+      );
+    }
+
+    const uniqueData = [
+      ...new Map(filters.map((v: any) => [v.id, v])).values(),
+    ];
+
+    // remove duplicates
+    let complains: any = uniqueData.map((item) => item);
+    this.complains = complains[0];
+    console.log(this.complains);
+  }
 
   saveAsExcelFile(buffer: any, fileName: string): void {
     let EXCEL_TYPE =
