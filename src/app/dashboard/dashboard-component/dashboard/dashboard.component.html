@@ -2,8 +2,8 @@
     <div class="header">Complaints</div>
 
     <div class="table-container">
-        <p-table #dt1 [value]="complains" selectionMode="single" dataKey="id" [scrollable]="true"
-        [paginator]="false" [rows]="10" [showCurrentPageReport]="false" 
+        <p-table #dt1 [columns]="cols" [value]="complains" selectionMode="single" dataKey="id" [scrollable]="true"
+        [paginator]="true" [rows]="15" [showCurrentPageReport]="false" [rowsPerPageOptions]="[10,25,50]"
         [loading]="loading" scrollHeight="1000px" [(selection)]="selectedComplain"
         >
 
@@ -44,37 +44,29 @@
             </div>
             
         </ng-template>
-        <ng-template pTemplate="header">
+        <ng-template pTemplate="header" let-columns>
             <tr>
-                <th>Time</th>
-                <th>Date</th>
-                <th>Phone Number</th>
-                <th>Complaint Type</th>
-                <th>Rating</th>
-                <th>NPS</th>
-                <th>Status</th>
+                <th *ngFor="let col of columns">
+                    {{ col.header }}
+                </th>
                 <th></th>
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-complain>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
             <p></p>
-            <tr [pSelectableRow]="complain">
-                <td>{{ complain?.time }}</td>
-                <td>{{ complain?.date }}</td>
-                <td>{{ complain?.phone }}</td>
-                <td>{{ complain?.complain_type }}</td>
-                <td>{{ complain?.rating }}</td>
-                <td>{{ complain?.nps }}</td>
-                <td>{{ complain?.status }}</td>
+            <tr [pSelectableRow]="rowData">
+                <td *ngFor="let col of columns">
+                    {{ rowData[col.field] }}
+                </td>
                 <td><button mat-button class="view">View</button></td>
             </tr>
             <p></p>
-            </ng-template>
-            <ng-template pTemplate="emptymessage">
-                <tr>
-                    <td colspan="8">No Complains found.</td>
-                </tr>
-            </ng-template>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td colspan="8">No Complains found.</td>
+            </tr>
+        </ng-template>
         </p-table>
     </div>
 </div>

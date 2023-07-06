@@ -130,55 +130,17 @@
     }
 
     ::ng-deep .p-datatable .p-paginator-bottom {
-      background: unset;
-      border: unset;
-      margin-top: 30px;
-    }
-
-    ::ng-deep .p-paginator .p-paginator-pages .p-paginator-page {
-      font-family: var(--poppins);
-      font-style: normal;
-      font-weight: 400;
-      font-size: 20px;
-      line-height: 24px;
-      color: #c4c4c4;
-    }
-
-    ::ng-deep .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
-      border-radius: unset;
-      color: var(--blue);
-      background: var(--white);
-      width: 30px;
-      height: 40px;
-    }
-
-    ::ng-deep .p-paginator .p-paginator-pages .p-paginator-page:hover {
-      border-radius: unset;
-      color: var(--blue);
-      background: var(--white);
-      width: 30px;
-      height: 40px;
-    }
-
-    ::ng-deep .p-paginator .p-dropdown {
       display: none;
     }
 
-    ::ng-deep .p-paginator .p-paginator-current {
-      font-family: var(--poppins);
-      font-style: normal;
-      font-weight: 400;
-      font-size: 20px;
-      line-height: 24px;
-      color: #333333;
-    }
-
     ::ng-deep .p-component-overlay {
-      background-color: rgba(97, 97, 255, 0.1);
+      background-color: rgba(138, 108, 200, 0.1);
     }
 
-    ::ng-deep i.p-datatable-loading-icon.pi.pi-spin.pi-spinner::before {
-      color: var(--blue);
+    ::ng-deep .p-datatable .p-datatable-loading-icon {
+      width: 2rem;
+      height: 2rem;
+      color: var(--primary-color);
     }
 
     .search_icon_header {

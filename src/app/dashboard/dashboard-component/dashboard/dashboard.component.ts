@@ -37,131 +37,151 @@ export class DashboardComponent {
   ];
   search: string = '';
   searchData: any[] = [];
+  cols: any[] = [];
+  exportColumns: any[] = [];
 
   constructor(public datepipe: DatePipe) {
-    this.complains = [
-      {
-        time: '12:43:01 pm',
-        date: '10/09/2022',
-        phone: '07038485738',
-        complain_type: 'Pharmacy',
-        rating: '3.2',
-        nps: '7',
-        status: 'Resolved',
-        id: 1,
-      },
-      {
-        time: '12:43:01 pm',
-        date: '10/09/2022',
-        phone: '07038485738',
-        complain_type: 'Laboratory',
-        rating: '1.0',
-        nps: '3',
-        status: 'In-Progress',
-        id: 2,
-      },
-      {
-        time: '12:43:01 pm',
-        date: '10/09/2022',
-        phone: '07038485738',
-        complain_type: 'Emergency Unit',
-        rating: '3.5',
-        nps: '5',
-        status: 'Open',
-        id: 3,
-      },
-      {
-        time: '12:43:01 pm',
-        date: '10/09/2022',
-        phone: '07038485738',
-        complain_type: 'Cash/Account',
-        rating: '2',
-        nps: '1.0',
-        status: 'In-Progress',
-        id: 4,
-      },
-      {
-        time: '12:43:01 pm',
-        date: '10/09/2022',
-        phone: '07038485738',
-        complain_type: 'Pharmacy',
-        rating: '3.2',
-        nps: '7',
-        status: 'Resolved',
-        id: 5,
-      },
-      {
-        time: '12:43:01 pm',
-        date: '10/09/2022',
-        phone: '07038485738',
-        complain_type: 'Laboratory',
-        rating: '1.0',
-        nps: '3',
-        status: 'In-Progress',
-        id: 6,
-      },
-      {
-        time: '12:43:01 pm',
-        date: '10/09/2022',
-        phone: '07038485738',
-        complain_type: 'Emergency Unit',
-        rating: '3.5',
-        nps: '5',
-        status: 'Open',
-        id: 7,
-      },
-      {
-        time: '12:43:01 pm',
-        date: '10/09/2022',
-        phone: '07038485738',
-        complain_type: 'Cash/Account',
-        rating: '2',
-        nps: '1.0',
-        status: 'In-Progress',
-        id: 8,
-      },
-      {
-        time: '12:43:01 pm',
-        date: '10/09/2022',
-        phone: '07038485738',
-        complain_type: 'Pharmacy',
-        rating: '3.2',
-        nps: '7',
-        status: 'Resolved',
-        id: 9,
-      },
-      {
-        time: '12:43:01 pm',
-        date: '10/09/2022',
-        phone: '07038485738',
-        complain_type: 'Laboratory',
-        rating: '1.0',
-        nps: '3',
-        status: 'In-Progress',
-        id: 10,
-      },
-      {
-        time: '12:43:01 pm',
-        date: '10/09/2022',
-        phone: '07038485738',
-        complain_type: 'Emergency Unit',
-        rating: '3.5',
-        nps: '5',
-        status: 'Open',
-        id: 11,
-      },
-      {
-        time: '12:43:01 pm',
-        date: '10/09/2022',
-        phone: '07038485738',
-        complain_type: 'Cash/Account',
-        rating: '2',
-        nps: '1.0',
-        status: 'In-Progress',
-        id: 12,
-      },
+    this.loading = true;
+    setTimeout(() => {
+      this.complains = [
+        {
+          time: '12:43:01 pm',
+          date: '10/09/2022',
+          phone: '07038485738',
+          complain_type: 'Pharmacy',
+          rating: '3.2',
+          nps: '7',
+          status: 'Resolved',
+          id: 1,
+        },
+        {
+          time: '12:43:01 pm',
+          date: '10/09/2022',
+          phone: '07038485738',
+          complain_type: 'Laboratory',
+          rating: '1.0',
+          nps: '3',
+          status: 'In-Progress',
+          id: 2,
+        },
+        {
+          time: '12:43:01 pm',
+          date: '10/09/2022',
+          phone: '08038485738',
+          complain_type: 'Emergency Unit',
+          rating: '3.5',
+          nps: '5',
+          status: 'Open',
+          id: 3,
+        },
+        {
+          time: '12:43:01 pm',
+          date: '10/09/2022',
+          phone: '01038485738',
+          complain_type: 'Cash/Account',
+          rating: '2',
+          nps: '1.0',
+          status: 'In-Progress',
+          id: 4,
+        },
+        {
+          time: '12:43:01 pm',
+          date: '10/09/2022',
+          phone: '02038485738',
+          complain_type: 'Pharmacy',
+          rating: '3.2',
+          nps: '7',
+          status: 'Resolved',
+          id: 5,
+        },
+        {
+          time: '12:43:01 pm',
+          date: '10/09/2022',
+          phone: '03038485738',
+          complain_type: 'Laboratory',
+          rating: '1.0',
+          nps: '3',
+          status: 'In-Progress',
+          id: 6,
+        },
+        {
+          time: '12:43:01 pm',
+          date: '10/09/2022',
+          phone: '04038485738',
+          complain_type: 'Emergency Unit',
+          rating: '3.5',
+          nps: '5',
+          status: 'Open',
+          id: 7,
+        },
+        {
+          time: '12:43:01 pm',
+          date: '10/09/2022',
+          phone: '05038485738',
+          complain_type: 'Cash/Account',
+          rating: '2',
+          nps: '1.0',
+          status: 'In-Progress',
+          id: 8,
+        },
+        {
+          time: '12:43:01 pm',
+          date: '10/09/2022',
+          phone: '06038485738',
+          complain_type: 'Pharmacy',
+          rating: '3.2',
+          nps: '7',
+          status: 'Resolved',
+          id: 9,
+        },
+        {
+          time: '12:43:01 pm',
+          date: '10/09/2022',
+          phone: '09038485738',
+          complain_type: 'Laboratory',
+          rating: '1.0',
+          nps: '3',
+          status: 'In-Progress',
+          id: 10,
+        },
+        {
+          time: '12:43:01 pm',
+          date: '10/09/2022',
+          phone: '010038485738',
+          complain_type: 'Emergency Unit',
+          rating: '3.5',
+          nps: '5',
+          status: 'Open',
+          id: 11,
+        },
+        {
+          time: '12:43:01 pm',
+          date: '10/09/2022',
+          phone: '011038485738',
+          complain_type: 'Cash/Account',
+          rating: '2',
+          nps: '1.0',
+          status: 'In-Progress',
+          id: 12,
+        },
+      ];
+      this.searchData = this.complains;
+      this.loading = false;
+    }, 2000);
+
+    this.cols = [
+      { field: 'time', header: 'Time' },
+      { field: 'phone', header: 'Phone Number' },
+      { field: 'complain_type', header: 'Complaint Type' },
+      { field: 'rating', header: 'Rating' },
+      { field: 'nps', header: 'NPS' },
+      { field: 'status', header: 'Status' },
     ];
-    this.searchData = this.complains;
+
+    this.exportColumns = this.cols.map((col) => ({
+      title: col.header,
+      dataKey: col.field,
+    }));
   }
 
   modelChange(search: any) {
@@ -174,6 +194,7 @@ export class DashboardComponent {
     this.selectedComplain = undefined;
     this.selectedStatus = undefined;
     this.search = '';
+    this.complains = this.searchData;
   }
 
   filter() {
@@ -182,15 +203,13 @@ export class DashboardComponent {
       // search
       const data = this.searchData?.filter((data: any) => {
         return (
-          data.time.toLowerCase().includes(this.search.toLowerCase()) ||
-          data.date.toLowerCase().includes(this.search.toLowerCase()) ||
-          data.phone.includes(this.search) ||
-          data.complain_type
+          data?.phone.includes(this.search) ||
+          data?.complain_type
             .toLowerCase()
             .includes(this.search.toLowerCase()) ||
-          data.rating.toLowerCase().includes(this.search.toLowerCase()) ||
-          data.nps.toLowerCase().includes(this.search.toLowerCase()) ||
-          data.status.toLowerCase().includes(this.search.toLowerCase())
+          data?.rating.toLowerCase().includes(this.search.toLowerCase()) ||
+          data?.nps.toLowerCase().includes(this.search.toLowerCase()) ||
+          data?.status.toLowerCase().includes(this.search.toLowerCase())
         );
       });
     }
@@ -198,7 +217,10 @@ export class DashboardComponent {
     if (this.selectedStatus) {
       filters.push(
         this.searchData?.filter((data: any) => {
-          return data?.status === this.selectedStatus?.name;
+          return (
+            data?.status.toLowerCase() ===
+            this.selectedStatus?.name.toLowerCase()
+          );
         })
       );
     }
@@ -234,7 +256,6 @@ export class DashboardComponent {
     // remove duplicates
     let complains: any = uniqueData.map((item) => item);
     this.complains = complains[0];
-    console.log(this.complains);
   }
 
   saveAsExcelFile(buffer: any, fileName: string): void {
