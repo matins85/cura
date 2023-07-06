@@ -36,13 +36,13 @@ export class AppPublicSidenavComponent implements OnInit {
 
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe([
-      Breakpoints.Tablet,
-      Breakpoints.TabletLandscape,
-      Breakpoints.TabletPortrait,
-      Breakpoints.Handset,
-      Breakpoints.HandsetLandscape,
-      Breakpoints.HandsetPortrait,
-      '(max-width: 1024px)',
+      // Breakpoints.Tablet,
+      // Breakpoints.TabletLandscape,
+      // Breakpoints.TabletPortrait,
+      // Breakpoints.Handset,
+      // Breakpoints.HandsetLandscape,
+      // Breakpoints.HandsetPortrait,
+      '(max-width: 1200px)',
     ])
     .pipe(
       map((result: any) => result.matches),

@@ -2,52 +2,61 @@ mat-toolbar {
   background: var(--white);
   height: 93px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
 
-  .logo-p {
-    margin-right: 20px;
+  .hambugger {
+    display: none;
+    margin-right: 10px;
 
-    .hambugger {
-      display: none;
-
-      svg path {
-        fill: #8a92a6;
-      }
-
-      svg {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+    svg path {
+      fill: #8a92a6;
     }
 
-    .text-container {
+    svg {
       display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 
-      .title {
-        color: var(--black);
-        font-size: 22px;
-        font-family: var(--poppins);
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-        margin-right: 23px;
-      }
+  .spacer {
+    flex: 1 1 auto;
+  }
 
-      .sub-title {
-        margin-left: 12.22px;
-        color: var(--black);
-        font-size: 22px;
-        font-family: var(--poppins);
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-      }
+  .text-container {
+    display: flex;
+    margin-right: 20px;
+
+    .title {
+      color: var(--black);
+      font-size: 22px;
+      font-family: var(--poppins);
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      margin-right: 23px;
+    }
+
+    .sub-title {
+      margin-left: 12.22px;
+      color: var(--black);
+      font-size: 22px;
+      font-family: var(--poppins);
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
     }
   }
 
   .bell {
     margin-right: 40px;
+  }
+}
+
+@media (max-width: 1200px) {
+  mat-toolbar {
+    .hambugger {
+      display: inline;
+    }
   }
 }

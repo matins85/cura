@@ -46,3 +46,13 @@ mat-sidenav-container {
     padding-bottom: 23px;
   }
 }
+
+@media (max-width: 1200px) {
+  .mat-sidenav-content {
+    padding-left: unset;
+
+    .main {
+      padding-left: 23px;
+    }
+  }
+}
