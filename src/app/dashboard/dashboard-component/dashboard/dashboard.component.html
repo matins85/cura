@@ -2,8 +2,8 @@
     <div class="header">Complaints</div>
 
     <div class="table-container">
-        <p-table #dt1  [value]="complains" selectionMode="single" dataKey="id" [scrollable]="true"
-        [paginator]="false" [rows]="15" [showCurrentPageReport]="false" 
+        <p-table #dt1 [value]="complains" selectionMode="single" dataKey="id" [scrollable]="true"
+        [paginator]="false" [rows]="10" [showCurrentPageReport]="false" 
         [loading]="loading" scrollHeight="1000px" [(selection)]="selectedComplain"
         >
 
@@ -11,12 +11,12 @@
 
             <div class="search_icon_header">
                 <form class="search-form_header">
-                    <input type="text" (input)="dt1.filterGlobal($event.target, 'contains')" name="search" placeholder="Enter phone number">
+                    <input type="text" [ngModel]="search" (ngModelChange)="modelChange($event)" name="search" placeholder="Enter phone number">
                     <button matSuffix mat-icon-button class="form-icon_header">
                         <img src="assets/icons/search.svg" alt=""/>
                     </button>
                 </form>
-                <button mat-button class="export-button">
+                <button mat-button class="export-button" (click)="dt1.exportCSV()">
                     <img src="assets/icons/export.svg" alt=""/>
                     <span>Export Complaints CSV</span>
                 </button>
@@ -27,11 +27,11 @@
                     <p-calendar [(ngModel)]="startDate" [showIcon]="true" placeholder="Start Date:"></p-calendar>
                     <p-calendar [(ngModel)]="endDate" [showIcon]="true" placeholder="End Date:"></p-calendar>
                     <p-dropdown [options]="filterStatus" [(ngModel)]="selectedStatus" placeholder="Status:" optionLabel="name"></p-dropdown>
-                    <button mat-button class="filter-button">
+                    <button mat-button class="filter-button" (click)="filter()">
                         <img src="assets/icons/filter.svg" alt=""/>
                         <span>Filter</span>
                     </button>
-                    <button mat-button class="clear-filter-button">
+                    <button mat-button class="clear-filter-button" (click)="clearFilter()">
                         <img src="assets/icons/cancel.svg" alt=""/>
                         <span>Clear Filter</span>
                     </button>
@@ -60,7 +60,7 @@
             <p></p>
             <tr [pSelectableRow]="complain">
                 <td>{{ complain?.time }}</td>
-                <td>{{ complain?.date | date}}</td>
+                <td>{{ complain?.date }}</td>
                 <td>{{ complain?.phone }}</td>
                 <td>{{ complain?.complain_type }}</td>
                 <td>{{ complain?.rating }}</td>
@@ -72,7 +72,7 @@
             </ng-template>
             <ng-template pTemplate="emptymessage">
                 <tr>
-                    <td colspan="3">No Roles found.</td>
+                    <td colspan="8">No Complains found.</td>
                 </tr>
             </ng-template>
         </p-table>

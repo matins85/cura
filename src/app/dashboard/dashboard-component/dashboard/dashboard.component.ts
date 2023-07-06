@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { CalendarModule } from 'primeng/calendar';
 import { DropdownModule } from 'primeng/dropdown';
 import { TableModule } from 'primeng/table';
+import * as FileSaver from 'file-saver';
 
 @Component({
   selector: 'app-dashboard',
@@ -34,6 +35,13 @@ export class DashboardComponent {
     { name: 'In-Progress', value: 'in-progress' },
     { name: 'Resolved', value: 'resolved' },
   ];
+  search: string = '';
+  searchData: any[] = [];
+
+  // this.datepipe.transform(
+  //   x?.dateofPresentAppointment || x?.dateOfPresentAppointment,
+  //   'YYYY-MM-dd'
+  // )
 
   constructor() {
     this.complains = [
@@ -158,5 +166,45 @@ export class DashboardComponent {
         id: 12,
       },
     ];
+    this.searchData = this.complains;
+  }
+
+  modelChange(search: any) {
+    // const data = this.searchData?.filter((data: any) => {
+    //   return (
+    //     data.time.toLowerCase().includes(search.toLowerCase()) ||
+    //     data.date.toLowerCase().includes(search.toLowerCase()) ||
+    //     data.phone.includes(search) ||
+    //     data.complain_type.toLowerCase().includes(search.toLowerCase()) ||
+    //     data.rating.toLowerCase().includes(search.toLowerCase()) ||
+    //     data.nps.toLowerCase().includes(search.toLowerCase()) ||
+    //     data.status.toLowerCase().includes(search.toLowerCase())
+    //   );
+    // });
+    // this.complains = data;
+    this.search = search;
+  }
+
+  clearFilter() {
+    this.startDate = undefined;
+    this.endDate = undefined;
+    this.selectedComplain = undefined;
+    this.selectedStatus = undefined;
+    this.search = '';
+  }
+
+  filter() {}
+
+  saveAsExcelFile(buffer: any, fileName: string): void {
+    let EXCEL_TYPE =
+      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
+    let EXCEL_EXTENSION = '.xlsx';
+    const data: Blob = new Blob([buffer], {
+      type: EXCEL_TYPE,
+    });
+    FileSaver.saveAs(
+      data,
+      fileName + '_export_' + new Date().getTime() + EXCEL_EXTENSION
+    );
   }
 }
